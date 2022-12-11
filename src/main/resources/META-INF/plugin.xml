@@ -1,0 +1,48 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin require-restart="false">
+    <id>com.example.abc</id>
+    <name>Abc</name>
+    <vendor email="quangtuyen1993@gmail.com">Abc</vendor>
+    <idea-version since-build="211.6432.7" until-build="222.*"/>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.lang</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>io.flutter</depends>
+    <depends>Dart</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="org.jetbrains.plugins.template.services.MyApplicationService"/>
+        <projectService serviceImplementation="org.jetbrains.plugins.template.services.MyProjectService"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="org.jetbrains.plugins.template.listeners.MyProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
+
+    <actions>
+        <group
+                id="org.jetbrains.plugins.template.action.DefaultDDDAction"
+                class="org.jetbrains.plugins.template.action.DefaultDDDAction"
+                popup="true"
+                text="DDD Action"
+                icon="org.jetbrains.plugins.template.MyIcons.Group"
+                description="Create DDD Action"
+        >
+            <add-to-group group-id="NewGroup" anchor="first"/>
+            <action
+                    icon="org.jetbrains.plugins.template.MyIcons.Action"
+                    id="org.jetbrains.plugins.template.action.DDDAction"
+                    class="org.jetbrains.plugins.template.action.DDDAction"
+                    text="DDDAction"
+                    description="SDK static grouped action example"
+            >
+            </action>
+        </group>
+    </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <postStartupActivity implementation="org.jetbrains.plugins.template.listeners.OpenStartUp"/>
+    </extensions>
+
+</idea-plugin>
