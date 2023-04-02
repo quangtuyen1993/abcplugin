@@ -1,5 +1,4 @@
 import org.jetbrains.changelog.markdownToHTML
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.archivesName
 
 fun properties(key: String) = project.findProperty(key).toString()
 
@@ -7,9 +6,9 @@ plugins {
 //     Java support
     id("java")
     // Kotlin support
-    id("org.jetbrains.kotlin.jvm") version "1.7.10"
+    id("org.jetbrains.kotlin.jvm") version "1.8.20"
     // Gradle IntelliJ Plugin
-    id("org.jetbrains.intellij") version "1.9.0"
+    id("org.jetbrains.intellij") version "1.13.3"
     // Gradle Changelog Plugin
     id("org.jetbrains.changelog") version "1.3.1"
 //    // Gradle Qodana Plugin
@@ -53,9 +52,10 @@ qodana {
     showReport.set(System.getenv("QODANA_SHOW_REPORT")?.toBoolean() ?: false)
 }
 
+
 tasks {
     runIde {
-        ideDir.set(file("/Applications/Android Studio.app/Contents"))
+        ideDir.set(file("/Users/tuyen/Library/Application Support/JetBrains/Toolbox/apps/AndroidStudio/ch-0/221.6008.13.2211.9619390/Android Studio.app/Contents"))
         autoReloadPlugins.set(true)
     }
     wrapper {
